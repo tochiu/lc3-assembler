@@ -52,28 +52,6 @@ impl Instruction {
         }
     }
 
-    fn keyword(self) -> &'static str {
-        match self {
-            Self::Add => "add",
-            Self::And => "and",
-            Self::Branch => "br",
-            Self::Jump => "jmp",
-            Self::JumpSubroutine => "jsr",
-            Self::JumpSubroutineRegister => "jsrr",
-            Self::Load => "ld",
-            Self::LoadIndirect => "ldi",
-            Self::LoadRegister => "ldr",
-            Self::LoadEffectiveAddress => "lea",
-            Self::Not => "not",
-            Self::Return => "ret",
-            Self::ReturnInterrupt => "rti",
-            Self::Store => "st",
-            Self::StoreIndirect => "sti",
-            Self::StoreRegister => "str",
-            Self::Trap => "trap",
-        }
-    }
-
     // this means that any instructions that share the same keyword must have the same arity
     fn num_args(self) -> usize {
         match self {
