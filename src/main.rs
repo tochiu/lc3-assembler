@@ -1,3 +1,11 @@
+// Author: tochiu (github.com/tochiu/lc3-assembler)
+//
+// September 7th, 2023
+//
+// This is a very simple assembler for the LC-3 ISA. It is not meant to be
+// robust or feature-complete, but rather a simple tool to help people translate valid
+// LC-3 assembly into machine code.
+
 use num_parse::*;
 
 #[derive(Debug, Clone, Copy)]
@@ -415,8 +423,6 @@ fn main() {
 
     while token_slice.len() > 0 {
         results.push(parse(&mut token_slice).unwrap());
-        //println!("{:04b} {:012b} ; {}", instruction.binary(), instruction_data.binary(), instruction.keyword());
-        //println!("{:04b}{:012b}", instruction.binary(), instruction_data.binary());
     }
 
     for ((instruction, instruction_data), line) in results.into_iter().zip(file_content.lines()) {
